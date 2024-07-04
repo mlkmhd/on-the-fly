@@ -1,0 +1,16 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: to-all
+spec:
+  egress:
+  - ports:
+    - protocol: TCP
+    to:
+    - ipBlock:
+        cidr: 0.0.0.0/0
+  podSelector: 
+    matchLabels:
+       networkpolicy.k8s.io/to-all: allow
+  policyTypes:
+  - Egress

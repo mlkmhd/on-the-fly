@@ -1,0 +1,38 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: vscode-test
+  labels:
+    sidecar.istio.io/inject: "false"
+    networkpolicy.k8s.io/to-all: allow
+    app.kubernetes.io/name: vscode-test
+    app.kubernetes.io/component: remote-development
+spec:
+  containers:
+  - name: vscode
+    image: codercom/code-server
+    env:
+      - name: PASSWORD
+        value: JmaFM4pS87JH6arm3DZJ
+      - name: GIT_REPO_URL
+        value: "git@github.com:mlkmhd/hekura.git"
+    command: ["/bin/bash"]
+    args: ["-c", "/mnt/scripts/startup.sh"]
+    resources:
+      requests:
+        memory: "500Mi"
+        cpu: "1"
+      limits:
+        memory: "6Gi"
+        cpu: "2"
+    volumeMounts:
+      - name: config-volume
+        mountPath: /mnt/scripts/
+        readOnly: true
+  securityContext:
+    runAsUser: 1000
+  volumes:
+    - name: config-volume
+      configMap:
+        name: script-configmap
+        defaultMode: 0755

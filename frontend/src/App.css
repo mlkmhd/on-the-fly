@@ -1,0 +1,70 @@
+.App {
+  text-align: center;
+}
+
+.logo-image {
+  width: 200px;
+  /* Example width */
+  height: auto;
+  /* Maintain aspect ratio */
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+.result-output {
+  background-color: transparent !important;
+  display: inline !important;
+
+}
+
+#result-password {
+  background-color: transparent !important;
+  color: red;
+}
+
+#result-url {
+  color: red;
+}
+
+.table {
+  border-style: solid;
+  border-width: 2px 2px;
+}
+
+.text-success p {
+  margin: 1px;
+}
+
+input.form-control::placeholder {
+  opacity: .4;
+}
+
+/* App.css */
+
+.floating-label {
+  position: absolute;
+  top: -20px;
+  left: 0px;
+  background:none;
+  padding: 0 5px;
+  font-size: 0.8rem;
+  color: white;
+}
+
+.position-relative .form-control:focus+.floating-label,
+.position-relative .form-control:not(:placeholder-shown)+.floating-label {
+  display: block;
+}
