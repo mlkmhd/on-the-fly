@@ -18,13 +18,6 @@ spec:
         value: "git@github.com:mlkmhd/hekura.git"
     command: ["/bin/bash"]
     args: ["-c", "/mnt/scripts/startup.sh"]
-    resources:
-      requests:
-        memory: "500Mi"
-        cpu: "1"
-      limits:
-        memory: "6Gi"
-        cpu: "2"
     volumeMounts:
       - name: config-volume
         mountPath: /mnt/scripts/

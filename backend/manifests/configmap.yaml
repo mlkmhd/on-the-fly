@@ -5,19 +5,7 @@ metadata:
 data:
   startup.sh: |
     #!/bin/bash
-    set -xe 
-
-    mkdir -p ~/.config/code-server
-    cp /mnt/scripts/settings.json ~/.config/code-server
-
-    cd ~
-    git clone ${GIT_REPO_URL} 
-    cd "$(ls -td -- */ | head -n 1)"
-    if [ -f "init.sh" ]; then
-        chmod +x ./init.sh
-        ./init.sh
-    fi
-
+    set -xe
     /usr/bin/entrypoint.sh --bind-addr 0.0.0.0:8080 .
     
   settings.json: |

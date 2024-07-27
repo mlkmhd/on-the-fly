@@ -19,4 +19,4 @@ spec:
   selector:
     app.kubernetes.io/name: vscode-test
   sessionAffinity: None
-  type: ClusterIP
+  type: NodePort
