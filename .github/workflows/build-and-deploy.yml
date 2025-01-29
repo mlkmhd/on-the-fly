@@ -21,8 +21,10 @@ jobs:
 
       - name: Build Docker image with Bun
         run: |
-          docker build -t my-frontend-app:latest ./frontend --file ./frontend/Dockerfile-bun
+          cd frontend
+          docker build -t my-frontend-app:latest . --file ./Dockerfile-bun
 
       - name: Build Docker image with Pnpm
         run: |
-          docker build -t my-frontend-app:latest ./frontend --file ./frontend/Dockerfile-pnpm
+          cd frontend
+          docker build -t my-frontend-app:latest . --file ./Dockerfile-pnpm
