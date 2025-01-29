@@ -19,7 +19,7 @@ RUN bun run build
 FROM nginx:alpine
 
 # Copy built React app to Nginx's serving directory
-COPY --from=builder /app/dist /usr/share/nginx/html
+COPY --from=builder /app/build /usr/share/nginx/html
 
 # Expose the default Nginx port
 EXPOSE 80
