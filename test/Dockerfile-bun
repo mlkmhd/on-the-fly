@@ -3,11 +3,11 @@ FROM oven/bun:latest AS builder
 # Set working directory
 WORKDIR /app
 
-# Copy package.json and bun.lockb first to leverage caching
-COPY package.json bun.lock ./
+# Copy package.json first to leverage caching
+COPY package.json ./
 
 # Install dependencies
-RUN bun install --frozen-lockfile
+RUN bun install
 
 # Copy the rest of the application files
 COPY . .
