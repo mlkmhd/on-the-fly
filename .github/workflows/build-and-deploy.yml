@@ -21,10 +21,14 @@ jobs:
 
       - name: Build Docker image with Bun
         run: |
-          cd frontend
+          git clone https://github.com/horizon-ui/shadcn-nextjs-boilerplate -o test-build-project
+          cd test-build-project
+          cp ../test/Dockerfile-bun .
           docker build -t my-frontend-app:latest . --file ./Dockerfile-bun
 
       - name: Build Docker image with Pnpm
         run: |
-          cd frontend
+          git clone https://github.com/horizon-ui/shadcn-nextjs-boilerplate -o test-build-project
+          cd test-build-project
+          cp ../test/Dockerfile-pnpm .
           docker build -t my-frontend-app:latest . --file ./Dockerfile-pnpm
